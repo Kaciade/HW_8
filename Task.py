@@ -39,27 +39,10 @@ def from_File(file):
 def view():
     print(from_File("Phonebook.txt"))
 
-# def choice():
-#    flag = input(
-#        "Для продолжения работы нажмите \"да\", или любой символ для завершения работы...")
-#    while (flag.lower() == "да"):
-#        path = "Phonebook.txt"
-#        valid = exists(path)
-#        if not valid:
-#            creating()
-#        choice_action = input(
-#            'Введите \'да\', если хотите записать новые данные, и любой другой символ, если хотите просмотреть справочник в консоли: ')
-#        if choice_action.lower() == 'да':
-#            record_info()
-#        else:
-#            view()
-#        flag = input('Для продолжения работы нажмите \'да\', или любой символ для завершения работы... ')
-#    print('Программа завершена.')
-
 continue_Action = "yes"
 
 while continue_Action == "yes":
-    type_Of_Action = input("Если хотите просмотреть список контактов введите 'read'\nЕсли хотите дабавить новый контакт введите 'write'\n")
+    type_Of_Action = input("Если хотите просмотреть список всех контактов введите\t'read'\nЕсли хотите дабавить новый контакт введите\t'write'\nЕсли хотите найти контакт введите\t'search'\n")
     if type_Of_Action == "write":
         record_info()
     if type_Of_Action == "read":
