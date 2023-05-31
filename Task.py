@@ -36,15 +36,35 @@ def from_File(file):
         dictionary = data.read()
     return dictionary
 
-def view():
+def display_Result():
     print(from_File("Phonebook.txt"))
+
+def search_Info():
+    print('По какому полю выполнить поиск?')
+    search_field = int(input("1 - по фамилии\n2 - по имени\n3 - по отчеству\n4 - по номеру телефона\n"))
+    search_value = None
+    if search_field == 1:
+        search_value = input("Введите фамилию для поиска: ")
+        print()
+    elif search_field == 2:
+        search_value = input("Введите имя для поиска: ")
+        print()
+    elif search_field == 3:
+        search_value = input("Введите отчество для поиска: ")
+        print()
+    elif search_field == 4:
+        search_value = input("Введите номер телефона для поиска: ")
+        print()
+    return search_field, search_value
 
 continue_Action = "yes"
 
 while continue_Action == "yes":
-    type_Of_Action = input("Если хотите просмотреть список всех контактов введите\t'read'\nЕсли хотите дабавить новый контакт введите\t'write'\nЕсли хотите найти контакт введите\t'search'\n")
-    if type_Of_Action == "write":
+    type_Of_Action = int(input("1 - для добавления контакта\n2 - для просмотра всего списка контактов\n3 - для поиска контакта\n"))
+    if type_Of_Action == 1:
         record_info()
-    if type_Of_Action == "read":
-        view()
+    elif type_Of_Action == 2:
+        display_Result()
+    elif type_Of_Action == 3:
+        search_Info()
     continue_Action = input("Для продолжения введите 'yes'\nЧтобы закончить введите, любой другой символ\n")
