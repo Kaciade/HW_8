@@ -32,3 +32,11 @@ def writing_Txt_File(info):
         data.write(
             f"Фамилия: {info[0]}\nИмя: {info[1]}\nНомер телефона: {info[2]}\nОписание: {info[3]}\n\n")
         
+def from_File(file):
+    with open(file, "r", encoding="utf-8") as data:
+        dictionary = data.read()
+    return dictionary
+
+info = get_Info()
+writing_Txt_File(info)
+from_File("Phonebook.txt")
