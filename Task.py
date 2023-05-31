@@ -26,7 +26,11 @@ def writing_Txt_File(info):
     with open(file, "a", encoding = "utf-8") as data:
         data.write(
             f"Фамилия: {info[0]}\nИмя: {info[1]}\nИмя: {info[2]}\nНомер телефона: {info[3]}\n\n")
-        
+
+def record_info():
+    info = get_Info()
+    writing_Txt_File(info)
+
 def from_File(file):
     with open(file, "r", encoding="utf-8") as data:
         dictionary = data.read()
@@ -35,30 +39,29 @@ def from_File(file):
 def view():
     print(from_File("Phonebook.txt"))
 
+# def choice():
+#    flag = input(
+#        "Для продолжения работы нажмите \"да\", или любой символ для завершения работы...")
+#    while (flag.lower() == "да"):
+#        path = "Phonebook.txt"
+#        valid = exists(path)
+#        if not valid:
+#            creating()
+#        choice_action = input(
+#            'Введите \'да\', если хотите записать новые данные, и любой другой символ, если хотите просмотреть справочник в консоли: ')
+#        if choice_action.lower() == 'да':
+#            record_info()
+#        else:
+#            view()
+#        flag = input('Для продолжения работы нажмите \'да\', или любой символ для завершения работы... ')
+#    print('Программа завершена.')
 
-def record_info():
-    info = get_Info()
-    writing_Txt_File(info)
+continue_Action = "yes"
 
-def choice():
-    flag = input(
-        "Для продолжения работы нажмите \"да\", или любой символ для завершения работы...")
-    while (flag.lower() == "да"):
-        path = "Phonebook.csv"
-        valid = exists(path)
-        if not valid:
-            creating()
-        choice_action = input(
-            'Введите \'да\', если хотите записать новые данные, и любой другой символ, если хотите просмотреть справочник в консоли: ')
-        if choice_action.lower() == 'да':
-            record_info()
-        else:
-            view()
-        flag = input(
-            'Для продолжения работы нажмите \'да\', или любой символ для завершения работы... ')
-    print('Программа завершена.')
-
-info = get_Info()
-writing_Txt_File(info)
-search = input("\nПоиск: ")
-from_File(search)
+while continue_Action == "yes":
+    type_Of_Action = input("Если хотите просмотреть список контактов введите 'read'\nЕсли хотите дабавить новый контакт введите 'write'\n")
+    if type_Of_Action == "write":
+        record_info()
+    if type_Of_Action == "read":
+        view()
+    continue_Action = input("Для продолжения введите 'yes'\nЧтобы закончить введите, любой другой символ\n")
